@@ -11,4 +11,5 @@ urlpatterns=[
     path('menu_item_list/create/', views.MenuItemCreate.as_view(), name='menu_item_create'),
     path('ingredients_list/update/<pk>/', views.IngredientsUpdate.as_view(), name='ingredients_update'),
     path('menu_item_list/update/<pk>/', views.MenuItemUpdate.as_view(), name='menu_item_update'),
+    path('ingredients_list/delete/<pk>', views.IngredientsDelete.as_view(), name='ingredients_delete')
 ]

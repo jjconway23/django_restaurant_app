@@ -49,3 +49,12 @@ class MenuItemUpdate(UpdateView):
     model = MenuItem
     template_name = 'django_restaurant\menu_item_update.html'
     fields = '__all__'
+
+# ----------------- Create Views
+
+class IngredientsDelete(DeleteView):
+    model = Ingredients
+    template_name = 'django_restaurant\ingredients_delete.html'
+    
+    def get_success_url(self):
+        return '/ingredients_list/'
