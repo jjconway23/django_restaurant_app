@@ -38,7 +38,7 @@ class MenuItemCreate(CreateView):
     form_class = MenuItemForm
 
 
-# ----------------- Create Views
+# ----------------- Update Views
 
 class IngredientsUpdate(UpdateView):
     model = Ingredients
@@ -50,7 +50,7 @@ class MenuItemUpdate(UpdateView):
     template_name = 'django_restaurant\menu_item_update.html'
     fields = '__all__'
 
-# ----------------- Create Views
+# ----------------- Delete Views
 
 class IngredientsDelete(DeleteView):
     model = Ingredients
@@ -58,3 +58,11 @@ class IngredientsDelete(DeleteView):
     
     def get_success_url(self):
         return '/ingredients_list/'
+
+    
+class MenuItemDelete(DeleteView):
+    model = MenuItem
+    template_name = 'django_restaurant\menu_item_delete.html'
+
+    def get_success_url(self):
+        return '/menu_item_list/'
