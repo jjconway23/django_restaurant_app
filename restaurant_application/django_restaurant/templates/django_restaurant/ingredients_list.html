@@ -10,10 +10,12 @@
 
 <table>
     <tr>
-        <th>Ingredient Name</th>
+        <th>Ingredient Name</th> 
         <th>Quantity</th>
         <th>Unit</th>
         <th>Price Per Unit</th>
+        <th></th>
+        <th></th>
     </tr>
     {% for item in object_list %}
         <tr>
@@ -21,10 +23,12 @@
             <td>{{item.quantity}}</td>
             <td>{{item.unit}}</td>
             <td>£{{item.price_per_unit}}</td>
+            <td><a href="">Update</a></td>
+            <td><a href="">Delete</a></td>
         </tr>
     {% endfor %}    
 </table>
-<h3><a href="{% url 'ingredients_create'%}">Add a new Ingredient</a></h3>
+<h3><a href="{% url 'ingredients_create'%}">Add new Ingredients</a></h3>
 {% endblock %}
     
 
