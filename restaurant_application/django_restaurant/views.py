@@ -44,3 +44,8 @@ class IngredientsUpdate(UpdateView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_update.html'
     fields = '__all__'
+
+class MenuItemUpdate(UpdateView):
+    model = MenuItem
+    template_name = 'django_restaurant\menu_item_update.html'
+    fields = '__all__'
