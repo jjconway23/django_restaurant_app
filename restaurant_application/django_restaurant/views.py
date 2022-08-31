@@ -1,4 +1,5 @@
 from http.client import HTTPResponse
+from typing import List
 from django.shortcuts import render
 from django.views.generic.list import ListView
 from .models import Ingredients, MenuItem, Purchase
@@ -18,3 +19,8 @@ class MenuItemList(ListView):
 class PurchaseList(ListView):
     model = Purchase
     template_name ='django_restaurant\purchase_list.html'
+
+
+class ProfitAndRevenueView(ListView):
+    model = Purchase
+    template_name ='django_restaurant\profit_and_revenue_list.html'
