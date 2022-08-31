@@ -9,13 +9,13 @@
 <h1>Ingredients List</h1>
 
 <table>
-    <th>
-        <td>Ingredient Name</td>
-        <td>Quantity</td>
-        <td>Unit</td>
-        <td>Price Per Unit</td>
-    </th>
-    {% for item in object_list%}
+    <tr>
+        <th>Ingredient Name</th>
+        <th>Quantity</th>
+        <th>Unit</th>
+        <th>Price Per Unit</th>
+    </tr>
+    {% for item in object_list %}
         <tr>
             <td>{{item.name}}</td>
             <td>{{item.quantity}}</td>

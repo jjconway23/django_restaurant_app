@@ -1,12 +1,11 @@
-from http.client import HTTPResponse
-from typing import List
 from django.shortcuts import render
 from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Ingredients, MenuItem, Purchase
 def home(request):
     return render(request, 'django_restaurant\index.html')
 
-
+# ----------------- List Views
 class IngredientsList(ListView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_list.html'
@@ -25,3 +24,8 @@ class PurchaseList(ListView):
 class ProfitAndRevenueView(ListView):
     model = Purchase
     template_name ='django_restaurant\profit_and_revenue_list.html'
+
+# ----------------- Create Views
+class IngredientsCreate(CreateView):
+    model = Ingredients
+    template_name = 'django_restaurant\ingredients_create.html'
