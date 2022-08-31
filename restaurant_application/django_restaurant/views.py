@@ -10,6 +10,7 @@ def home(request):
 class IngredientsList(ListView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_list.html'
+    ingredient_list = Ingredients.objects.all()
 
 class MenuItemList(ListView):
     model = MenuItem

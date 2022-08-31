@@ -7,6 +7,24 @@
 
 {% block content %}
 <h1>Ingredients List</h1>
+
+<table>
+    <th>
+        <td>Ingredient Name</td>
+        <td>Quantity</td>
+        <td>Unit</td>
+        <td>Price Per Unit</td>
+    </th>
+    {% for item in ingredient_list%}
+        <tr>
+            <td>{{item.name}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.unit}}</td>
+            <td>{{item.price_per_unit}}</td>
+        </tr>
+    {% endfor %}    
+</table>
+
 {% endblock %}
     
 
