@@ -1,7 +1,7 @@
 from http.client import HTTPResponse
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from .models import Ingredients
+from .models import Ingredients, MenuItem
 def home(request):
     return render(request, 'django_restaurant\index.html')
 
@@ -9,3 +9,7 @@ def home(request):
 class IngredientsList(ListView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_list.html'
+
+class MenuItemList(ListView):
+    model = MenuItem
+    template_name = 'django_restaurant\menu_item_list.html'
