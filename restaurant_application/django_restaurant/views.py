@@ -36,3 +36,11 @@ class MenuItemCreate(CreateView):
     model = MenuItem
     template_name = 'django_restaurant\menu_item_create.html'
     form_class = MenuItemForm
+
+
+# ----------------- Create Views
+
+class IngredientsUpdate(UpdateView):
+    model = Ingredients
+    template_name = 'django_restaurant\ingredients_update.html'
+    fields = '__all__'
