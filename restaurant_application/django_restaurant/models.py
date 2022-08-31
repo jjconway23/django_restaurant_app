@@ -10,3 +10,9 @@ class Ingredients(models.Model):
 class MenuItem(models.Model):
     title = models.CharField(max_length=50, blank=False)
     price = models.DecimalField(max_digits=6, decimal_places=2, blank=False)
+
+
+class RecipeRequirement(models.Model):
+    menu_item = models.ForeignKey(MenuItem,on_delete=models.CASCADE)
+    ingredients = models.ForeignKey(Ingredients, on_delete=models.CASCADE)
+    quantity = models.CharField(max_length=50, blank=False)
