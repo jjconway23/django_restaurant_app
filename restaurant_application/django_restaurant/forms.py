@@ -6,7 +6,7 @@ class IngredientsForm(ModelForm):
         model = Ingredients
         fields = '__all__'
 
-class MenuItem(ModelForm):
+class MenuItemForm(ModelForm):
     class Meta:
         model= MenuItem
         fields = '__all__'

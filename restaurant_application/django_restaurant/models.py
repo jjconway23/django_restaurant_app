@@ -20,6 +20,8 @@ class MenuItem(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('menu_item_list')
 
 class RecipeRequirement(models.Model):
     menu_item = models.ForeignKey(MenuItem,on_delete=models.CASCADE)
