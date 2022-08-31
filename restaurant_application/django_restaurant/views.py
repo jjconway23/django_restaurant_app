@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Ingredients, MenuItem, Purchase
+from .forms import IngredientsForm
 def home(request):
     return render(request, 'django_restaurant\index.html')
 
@@ -29,3 +30,4 @@ class ProfitAndRevenueView(ListView):
 class IngredientsCreate(CreateView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_create.html'
+    form_class = IngredientsForm
