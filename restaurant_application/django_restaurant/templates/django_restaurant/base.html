@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
     {% block head %}
     {% endblock %}
 </head>
@@ -18,6 +19,11 @@
                 <li><a href="{% url 'profit_and_revenue_list' %}">View Profit and Revenue</a></li>
             </ul>
         </nav>
+        <div>
+            <a href="">Login</a>
+            <a href="">SignUp</a>
+        </div>
+
     </header>
     {% block content %}
     {% endblock %}
