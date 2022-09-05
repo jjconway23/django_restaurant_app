@@ -3,7 +3,10 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Ingredients, MenuItem, Purchase
 from .forms import IngredientsForm, MenuItemForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -11,32 +14,32 @@ def home(request):
     return render(request, 'django_restaurant\index.html')
 
 # ----------------- List Views
-class IngredientsList(ListView):
+class IngredientsList(LoginRequiredMixin,ListView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_list.html'
     ingredient_list = Ingredients.objects.all()
 
-class MenuItemList(ListView):
+class MenuItemList(LoginRequiredMixin,ListView):
     model = MenuItem
     template_name = 'django_restaurant\menu_item_list.html'
 
 
-class PurchaseList(ListView):
+class PurchaseList(LoginRequiredMixin,ListView):
     model = Purchase
     template_name ='django_restaurant\purchase_list.html'
 
 
-class ProfitAndRevenueView(ListView):
+class ProfitAndRevenueView(LoginRequiredMixin,ListView):
     model = Purchase
     template_name ='django_restaurant\profit_and_revenue_list.html'
 
 # ----------------- Create Views
-class IngredientsCreate(CreateView):
+class IngredientsCreate(LoginRequiredMixin,CreateView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_create.html'
     form_class = IngredientsForm
 
-class MenuItemCreate(CreateView):
+class MenuItemCreate(LoginRequiredMixin,CreateView):
     model = MenuItem
     template_name = 'django_restaurant\menu_item_create.html'
     form_class = MenuItemForm
@@ -44,19 +47,19 @@ class MenuItemCreate(CreateView):
 
 # ----------------- Update Views
 
-class IngredientsUpdate(UpdateView):
+class IngredientsUpdate(LoginRequiredMixin,UpdateView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_update.html'
     fields = '__all__'
 
-class MenuItemUpdate(UpdateView):
+class MenuItemUpdate(LoginRequiredMixin,UpdateView):
     model = MenuItem
     template_name = 'django_restaurant\menu_item_update.html'
     fields = '__all__'
 
 # ----------------- Delete Views
 
-class IngredientsDelete(DeleteView):
+class IngredientsDelete(LoginRequiredMixin,DeleteView):
     model = Ingredients
     template_name = 'django_restaurant\ingredients_delete.html'
     
@@ -64,7 +67,7 @@ class IngredientsDelete(DeleteView):
         return '/ingredients_list/'
 
     
-class MenuItemDelete(DeleteView):
+class MenuItemDelete(LoginRequiredMixin,DeleteView):
     model = MenuItem
     template_name = 'django_restaurant\menu_item_delete.html'
 
@@ -84,3 +87,8 @@ def login_page(request):
         else:
             return HttpResponse("invalid credentials")
     return render(request, "registration/login.html")
+
+@login_required
+def logout_view(request):
+    logout(request)
+    return redirect("home")
