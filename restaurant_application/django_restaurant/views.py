@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Ingredients, MenuItem, Purchase
 from .forms import IngredientsForm, MenuItemForm
+from django.contrib.auth import authenticate, login
+
+
+
 def home(request):
     return render(request, 'django_restaurant\index.html')
 
@@ -66,3 +70,17 @@ class MenuItemDelete(DeleteView):
 
     def get_success_url(self):
         return '/menu_item_list/'
+
+# ----------------- Registration Views
+
+def login_page(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request,username=username, password=password)
+        if user is not None:
+            login(request,user)
+            return redirect("home")
+        else:
+            return HttpResponse("invalid credentials")
+    return render(request, "registration/login.html")

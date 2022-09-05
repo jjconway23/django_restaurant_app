@@ -1,0 +1,23 @@
+{% extends 'django_restaurant\base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'django_restaurant\style.css' %}">
+
+{% endblock %}
+
+{% block content %}
+<h1>Login!</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username" placeholder="Username">
+    <br>
+    <br>
+    <label for="password">Password: </label>
+    <input type="text" name="password" id="password" placeholder="Password">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}
+    

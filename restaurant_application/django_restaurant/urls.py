@@ -13,4 +13,5 @@ urlpatterns=[
     path('menu_item_list/update/<pk>/', views.MenuItemUpdate.as_view(), name='menu_item_update'),
     path('ingredients_list/delete/<pk>', views.IngredientsDelete.as_view(), name='ingredients_delete'),
     path('menu_item_list/delete/<pk>/', views.MenuItemDelete.as_view(), name='menu_item_delete'),
+    path('login/', views.login_page, name="login")
 ]
