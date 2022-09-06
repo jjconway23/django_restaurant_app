@@ -9,27 +9,30 @@
     {% endblock %}
 </head>
 <body>
-    <header>
+    <header class="container p-4">
         <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'ingredients_list' %}">Ingredients List</a></li>
-                <li><a href="{% url 'menu_item_list' %}">Menu Items</a></li>
-                <li><a href="{% url 'purchase_list' %}">View Purchases</a></li>
-                <li><a href="{% url 'profit_and_revenue_list' %}">View Profit and Revenue</a></li>
+            <ul class="nav nav-tabs">
+                <li class="nav-item"><a class='nav-link' href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class='nav-link' href="{% url 'ingredients_list' %}">Ingredients List</a></li>
+                <li class="nav-item"><a class='nav-link' href="{% url 'menu_item_list' %}">Menu Items</a></li>
+                <li class="nav-item"><a class='nav-link' href="{% url 'purchase_list' %}">View Purchases</a></li>
+                <li class="nav-item"><a class='nav-link' href="{% url 'profit_and_revenue_list' %}">View Profit and Revenue</a></li>
             </ul>
         </nav>
-        <div>
+        <div class="ms-auto">
             {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}">Logout</a>
+                <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
             {% else %}
-                <a href="{% url 'login' %}">Login</a>
-                <a href="">SignUp</a>
+                <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+                <a class="btn btn-success" href="">SignUp</a>
             {% endif %}
         </div>
 
     </header>
-    {% block content %}
-    {% endblock %}
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
 </body>
 </html>
