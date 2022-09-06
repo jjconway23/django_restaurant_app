@@ -9,25 +9,27 @@
 
 {% block content %}
 <h1>Menu Item List</h1>
-<table>
-    <tr>
+<table class="table table-hover mb-4">
+    <tr class="table-info">
         <th>ID</th>
         <th>Title</th>
         <th>Price</th>
+        <th></th>
+        <th></th>
     </tr>
     {% for item in object_list %}
     <tr>
         <td>{{item.id}}</td>
         <td>{{item.title}}</td>
         <td>{{item.price}}</td>
-        <td><a href="{% url 'menu_item_update' item.id %}">Update</a></td>
-        <td><a href="{% url 'menu_item_delete' item.id %}">Delete</a></td>
+        <td><a class="btn btn-warning" href="{% url 'menu_item_update' item.id %}">Update</a></td>
+        <td><a class="btn btn-danger" href="{% url 'menu_item_delete' item.id %}">Delete</a></td>
     </tr>
     {% empty %}
     <tr><p>You have not added a menu item yet</p></tr>
     {% endfor %}
 </table>
-<h3><a href="{% url 'menu_item_create'%}">Add an Item to the Menu</a></h3>
+<h4 class="mt-4"><a href="{% url 'menu_item_create'%}">Add an Item to the Menu</a></h4>
 {% endblock %}
     
 
