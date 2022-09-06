@@ -15,4 +15,5 @@ urlpatterns=[
     path('menu_item_list/delete/<pk>/', views.MenuItemDelete.as_view(), name='menu_item_delete'),
     path('login/', views.login_page, name="login"),
     path('logout/', views.logout_view, name='logout'),
+    path('signup/',views.SignUp.as_view(), name='signup'),
 ]

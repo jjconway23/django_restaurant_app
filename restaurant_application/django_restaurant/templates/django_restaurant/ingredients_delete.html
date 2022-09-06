@@ -13,7 +13,7 @@
 <form action="" method="POST">
     {% csrf_token %}
     <p>Are you sure you want to delete "{{object.name}}" ?</p>
-    <input type="submit" value="Confirm">
+    <input class='btn btn-danger' type="submit" value="Confirm">
 </form>
 {% endblock %}
     

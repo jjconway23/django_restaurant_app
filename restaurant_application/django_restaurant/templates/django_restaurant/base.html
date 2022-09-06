@@ -25,7 +25,7 @@
                 <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
             {% else %}
                 <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
-                <a class="btn btn-success" href="">SignUp</a>
+                <a class="btn btn-success" href="{% url 'signup' %}">SignUp</a>
             {% endif %}
         </div>
 
