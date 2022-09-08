@@ -11,7 +11,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 
 def home(request):
-    return render(request, 'django_restaurant\index.html')
+    return render(request, 'django_restaurant\pages\index.html')
 
 # ----------------- List Views
 class IngredientsList(LoginRequiredMixin,ListView):
